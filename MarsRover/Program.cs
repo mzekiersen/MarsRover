@@ -30,13 +30,13 @@ namespace MarsRover
                 inputParameter = "";
                 //Inserting Rover Position
                 Console.WriteLine("Insert Rover Position:");
-                var roverPosition = Console.ReadLine().ToUpper();
+                var roverPosition = Console.ReadLine();
                 roverPosition = !string.IsNullOrEmpty(roverPosition) ? roverPosition.ToUpper() : roverPosition;
 
                 //Rover Position Input & Inside Plateua Validation Control
                 while (!roverPosition.IsRoverPositionInputValid() || !rover.InitializeRover(plateau, roverPosition))
                 {
-                    Console.WriteLine("Incorrect Rover Position! Please insert first parameter 0 to "+ plateau.PlateauSize.WidthX + ", second parameter 0 to "+ plateau.PlateauSize.HeigthY + " and last parameter one of N,S,W,E");
+                    Console.WriteLine("Incorrect Rover Position! Please insert 1st 0 to "+ plateau.PlateauSize.WidthX + ", 2nd parameter 0 to "+ plateau.PlateauSize.HeigthY + " and last one of N,S,W,E");
                         
                     roverPosition = Console.ReadLine();
                     roverPosition = !string.IsNullOrEmpty(roverPosition) ? roverPosition.ToUpper() : roverPosition;                     
@@ -44,7 +44,8 @@ namespace MarsRover
 
                 //Inserting Rover Position
                 Console.WriteLine("Insert Rover Action Commands:");
-                var roverActionCommand = Console.ReadLine();
+                var roverActionCommand = Console.ReadLine().ToUpper();
+                roverActionCommand = !string.IsNullOrEmpty(roverActionCommand) ? roverActionCommand.ToUpper() : roverActionCommand;
                 //Rover Action Command Input Validation Control
                 while (!roverActionCommand.IsRoverActionCommandInputValid())
                 {
